@@ -5,8 +5,20 @@ import Header from './Component/Header'
 import Home from './Component/Home'
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.onchange = this.onchange.bind(this)
+    this.state = {
+      link: 'Link 1'
+    }
+  }
   onAlert(){
     alert('hi')
+  }
+  onchange(prevProp){
+    this.setState({
+      link: prevProp
+    })
   }
   render() {
     var user = {
@@ -19,13 +31,13 @@ class App extends Component {
       <div className='container'>
         <div className='row'>
           <div className='col-md-12'>
-            <Header></Header>
+            <Header link={this.state.link}></Header>
             <br/>
             <p>Hello! World</p>
             {2 + 3}
             <br/>
             <br/>
-            <Home name={'Ali Azam'} details={user} alert={this.onAlert}>
+            <Home name={'Ali Azam'} details={user} alert={this.onAlert} onchange={this.onchange}>
                this is child element of Home Component
             </Home>
           </div>

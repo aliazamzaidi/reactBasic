@@ -4,8 +4,10 @@ class Home extends React.Component{
     constructor(props){
         super(props);
         this.add = this.add.bind(this);
+        this.changeLink = this.changeLink.bind(this);
         this.state = ({
-            age: this.props.details.age
+            age: this.props.details.age,
+            newLink: 'Azam'
         })
     }
 
@@ -14,6 +16,10 @@ class Home extends React.Component{
             age: this.state.age + 3
         })
         // console.log(this.props.details.age)
+    }
+
+    changeLink(){
+        this.props.onchange(this.state.newLink)
     }
     
     render(){
@@ -37,6 +43,7 @@ class Home extends React.Component{
                 </p>
                 <button className='btn btn-primary' onClick={()=> this.add()}>add</button>
                 <button onClick={this.props.alert} className='btn btn-danger'>Alert!</button>
+                <button onClick={this.changeLink} className='btn'>change Link1</button>
             </div>
         )
     }

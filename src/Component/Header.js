@@ -1,10 +1,13 @@
 import React from 'react';
 
 class Header extends React.Component{
+    constructor(props){
+        super(props);
+    }
     render(){
         return (
             <nav>
-                <li>test 1</li>
+                <li>{this.props.link}</li>
                 <li>Test 2</li>
             </nav>
         )
