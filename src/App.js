@@ -5,6 +5,9 @@ import Header from './Component/Header'
 import Home from './Component/Home'
 
 class App extends Component {
+  onAlert(){
+    alert('hi')
+  }
   render() {
     var user = {
       name:'Ali',
@@ -22,7 +25,7 @@ class App extends Component {
             {2 + 3}
             <br/>
             <br/>
-            <Home name={'Ali Azam'} details={user}>
+            <Home name={'Ali Azam'} details={user} alert={this.onAlert}>
                this is child element of Home Component
             </Home>
           </div>

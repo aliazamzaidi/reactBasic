@@ -1,6 +1,20 @@
 import React from 'react';
 
 class Home extends React.Component{
+    constructor(props){
+        super(props);
+        this.add = this.add.bind(this);
+        this.state = ({
+            age: this.props.details.age
+        })
+    }
+
+    add(){
+        this.setState({
+            age: this.state.age + 3
+        })
+        // console.log(this.props.details.age)
+    }
     
     render(){
         console.log(this.props)
@@ -10,6 +24,7 @@ class Home extends React.Component{
                 {this.props.children}
                 <hr/>
                 <p>This is Paragraph Element</p>
+                <p>Age is: {this.state.age}</p>
                 <hr/>
                 <p>My Name is {this.props.name}</p>
                 <p>My Details from Object is {this.props.details.name}</p>
@@ -20,6 +35,8 @@ class Home extends React.Component{
                         )}
                     </ul>
                 </p>
+                <button className='btn btn-primary' onClick={()=> this.add()}>add</button>
+                <button onClick={this.props.alert} className='btn btn-danger'>Alert!</button>
             </div>
         )
     }
